@@ -4,6 +4,7 @@ from zhipuai import ZhipuAI
 import os
 import threading
 import datetime
+import configparser
 
 # ==================== Industrial Aesthetic Color Palette ====================
 COLORS = {
@@ -20,8 +21,14 @@ COLORS = {
     "error_msg": "#ff5252",        # Alert Red
     "send_btn_text": "#121212",    
 }
+# Load configuration file and read API_KEY
+config = configparser.ConfigParser()
+config.read('config.ini')
 
-API_KEY = os.getenv("NAME", "API_KEY") ## Please visit the Zhipu AI website to apply for an API_KEY (https://open.bigmodel.cn)
+API_KEY = config.get('api', 'api_key', fallback=None)   ## Please visit the Zhipu AI website to apply for an API_KEY (https://open.bigmodel.cn)
+if not API_KEY:
+    raise ValueError("API_KEY is not configured. Please check the config.ini file.")
+
 client = ZhipuAI(api_key=API_KEY)
 
 messages = [
