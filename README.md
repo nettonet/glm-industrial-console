@@ -15,7 +15,7 @@ A minimalist, industrial-styled AI chat interface built with Python and Tkinter,
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/glm-industrial-console.git
+   git clone https://github.com/nettonet/glm-industrial-console.git
    cd glm-industrial-console
    ```
 2. Install dependencies:
